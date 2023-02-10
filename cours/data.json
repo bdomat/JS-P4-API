@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.formatOnSave": true,
+    "[html]": {
+      "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "diffEditor.wordWrap": "on",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }
+  
