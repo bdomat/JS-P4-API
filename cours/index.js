@@ -37,7 +37,7 @@ const init = {
   cache: "default",
 };
 fetch("data.json", init).then((res) => console.log(res));
-*/
+
 //CRUD => Create (POST), read (GET), update (PUT), Delete (DELETE)
 const init2 = {
   method: "DELETE",
@@ -67,11 +67,11 @@ setTimeout(() => {
 }, 2000);
 
 //Promise
-fetch("monLien").then((res) => res);
+//fetch("monLien").then((res) => res);
 
 //async/await
 async function fetchData() {
-  await fetch("monlien");
+ // await fetch("monlien");
   //attend que le await soit executé avant de faire la suite
   executeFunction();
 }
@@ -80,3 +80,28 @@ const fetchData2 = async () => {
   await fetch("monlien");
   //attend que le await soit executé avant de faire la suite
 };
+*/
+
+//----------
+// LE JSON
+//----------
+
+//Méthode .json() => méthode qui s'auto-résout en renvoyant le body de la requête
+
+fetch("data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    //stringify => converti en JSON
+    let settings = JSON.stringify(data);
+    //Parse => transforme JSON en objet JS
+    //console.log(JSON.parse(settings));
+  });
+
+//---------
+// Web API
+//--------
+
+// CLIENT STORAGE
+//----------------
+
+//Local Storage
