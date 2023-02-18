@@ -105,3 +105,29 @@ fetch("data.json")
 //----------------
 
 //Local Storage
+localStorage.data = "Je stock la data";
+//>> injecter localStorage
+document.body.textContent = localStorage.data;
+//>> supprimer localStorage
+localStorage.removeItem("data");
+
+const obj = {
+  name: "Denis",
+  age: 33,
+};
+
+//Il faut passer eds chaines de caractères
+localStorage.user = JSON.stringify(obj);
+//console.log(JSON.parse(localStorage.user));
+
+//--------------------
+//Sesssion Storage
+sessionStorage.dataSettings = "55px";
+sessionStorage.clear();
+
+//------------------
+//Cookies
+document.cookie = "username=FromScratch";
+
+// Bonne pratique
+document.cookie = "pseudo=FS;path=/;max-age=45000;secure; samesite";
