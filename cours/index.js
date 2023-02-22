@@ -1,5 +1,5 @@
 //XMLHTTPRequest
-/*
+
 function reqListener() {
   // console.log(this.responseText);
 }
@@ -15,20 +15,20 @@ req.send();
 // FETCH
 //----------------
 
-// fetch("https://api.blablagues.net/?rub=blagues", "objet d'options")
-//   .then((response) => {
-//     //console.log(response);
-//   })
-//   .catch((err) => console.log(err));
+fetch("https://api.blablagues.net/?rub=blagues", "objet d'options")
+  .then((response) => {
+    //console.log(response);
+  })
+  .catch((err) => console.log(err));
 
 fetch("data.txt").then((res) => res.text());
-//.then((data) => console.log(data));
+.then((data) => console.log(data));
 
 fetch("data.json")
   .then((res) => res.json())
   .then((data) => console.log(data));*/
 
-/*const myHeaders = new Headers();
+const myHeaders = new Headers();
 
 const init = {
   method: "GET",
@@ -67,7 +67,7 @@ setTimeout(() => {
 }, 2000);
 
 //Promise
-//fetch("monLien").then((res) => res);
+fetch("monLien").then((res) => res);
 
 //async/await
 async function fetchData() {

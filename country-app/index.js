@@ -1,8 +1,5 @@
-// 1 - Tester le lien de l'API dans le navigateur (https://restcountries.com/v3.1/all)
-
-// 2 - Créer une fonction pour "fetcher" les données, afficher les données dans la console.
 let countries = [];
-const countriesCards = document.querySelector("countries-container");
+const countriesCards = document.querySelector(".countries-container");
 const resultsNumber = document.getElementById(`inputRange`);
 
 async function fetchCountries() {
@@ -10,22 +7,36 @@ async function fetchCountries() {
     .then((res) => res.json())
     .then((data) => (countries = data));
   console.log(countries);
+  countriesDisplay();
 }
 
-fetchCountries();
-countriesCards.innerHTML = countries.map((country) => {
-  `
+function countriesDisplay() {
+  countriesCards.innerHTML = countries
+    .filter((country) =>
+      country.translations.fra.common
+        .toLowerCase()
+        .includes(inputSearch.value.toLowerCase())
+    )
+    .map(
+      (country) =>
+        `
   <div class="card">
-<h2>${country.capital}</h2>
+  <img src="${country.flags.svg}" alt="drapeau ${
+          country.translations.fra.common
+        }" style="width: 200px;">
+  <h2>${country.translations.fra.common}</h2>
+  <h4>${country.capital}</h4>
+  <p>Population : ${country.population.toLocaleString()}</p>
+
   </div>
-  `;
-});
-// 3 - Passer les données à une variable
+  `
+    )
+    .join("")
+    .slice(4, inputRange);
+}
 
-// 4 - Créer une fonction d'affichage, et paramétrer l'affichage des cartes de chaque pays grace à la méthode MAP
-
-// 5 - Récupérer ce qui est tapé dans l'input et filtrer (avant le map) les données
-//coutry.name.includes(inputSearch.value);
+window.addEventListener("load", fetchCountries);
+inputSearch.addEventListener("input", countriesDisplay);
 
 // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
 
